@@ -1,5 +1,12 @@
 import './App.css';
 import scss from './app.module.scss'
+import { testFetch } from '@/api/test'
+
+testFetch()
+  .then(res => {
+    console.log('res')
+    console.log(res)
+  })
 
 function App() {
   return (
