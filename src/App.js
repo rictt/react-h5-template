@@ -1,6 +1,7 @@
-import './App.css';
-import scss from './app.module.scss'
 import { testFetch } from '@/api/test'
+import { NavLink, HashRouter as Router } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
+import routes from "@/router";
 
 testFetch()
   .then(res => {
@@ -8,13 +9,28 @@ testFetch()
     console.log(res)
   })
 
+const appStyle = {
+  textAlign: 'center',
+  fontSize: '20px',
+  display: 'flex',
+  justifyAlign: 'center',
+  flexDirection: 'column',
+  marginTop: '100px'
+} 
+
 function App() {
   return (
-    <div className="App">
-      <main className="main-test">
-        main 主体区域
-      </main>
-      <div className={scss['app-test']}>test</div>
+    <div style={appStyle}>
+      <Router>
+        <div>
+          <NavLink exact to="/">home</NavLink>
+          <span> | </span>
+          <NavLink to="/test">group</NavLink>
+          <span> | </span>
+          <NavLink to="/test/detail">group detail</NavLink>
+        </div>
+        {renderRoutes(routes)}
+      </Router>
     </div>
   );
 }

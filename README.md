@@ -1,3 +1,64 @@
+# 文档记录
+  - 配置文件管理
+
+    环境会有**development、production**，对应src/config文件，全局或者axios的文件可对应一一写入
+
+    ```js
+    // 本地环境配置
+    module.exports = {
+      title: 'react-h5-template',
+      baseUrl: 'http://localhost:9018', // 项目地址
+      APPID: 'xxx',
+      APPSECRET: 'xxx',
+      $cdn: 'https://www.sunniejs.cn/static'
+    }
+    ```
+
+  - 路由管理
+
+    采用react-router-config，进行配置化管理，需注意的是，相应的react-router（dom）版本不能是最新v5，否则会有不适配的问题
+
+  - 样式管理
+
+    - 文件用module.scss结尾，在jsx中导入样式对象，使用对象的语法
+
+    ```js
+    import testStyle from './index.module.scss'
+
+    function Test() {
+      return (
+        <div className={testStyle['test-page']}>
+          嵌套在test下面的字路由
+        </div>
+      )
+    }
+    ```
+
+    - 文件正常scss结尾，但需在文件中声明好相应的作用域名称
+
+    ```scss
+    $name: 'home-page';
+    #{$name}-test {
+      color: red;
+
+      .custom-color {
+        color: skyblue;
+      }
+    }
+    ```
+
+    ```js
+    function Home() {
+      return (
+        <div className='home-page-test'>
+          我是Home页面的内容
+          <h3 className='custom-color'>自定义颜色</h3>
+        </div>
+      )
+    }
+    ```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
