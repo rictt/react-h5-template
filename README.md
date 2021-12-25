@@ -38,7 +38,7 @@
 
     ```scss
     $name: 'home-page';
-    #{$name}-test {
+    .#{$name}-test {
       color: red;
 
       .custom-color {

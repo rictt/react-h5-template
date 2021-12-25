@@ -1,4 +1,5 @@
-import './index.scss'
+import style from  './index.scss'
+console.log(style)
 
 function Home() {
   return (
