@@ -1,4 +1,31 @@
 # 文档记录
+  - 开发设置代理
+  
+    在src目录下新建proxySetup.js文件
+    
+    ```js
+    // https://www.cnblogs.com/echolun/p/15173956.html
+
+    const { createProxyMiddleware } = require('http-proxy-middleware');
+
+    module.exports = function(app) {
+      app.use(
+        createProxyMiddleware(
+          '/api', 
+          {
+            target: 'http://176.113.69.25:6208',
+            secure: false,
+            changeOrigin: true,
+            pathRewrite: {
+              "^/api": ""
+            }
+          }
+        )
+      )
+    }
+
+    ```
+
   - 构建生产包并本地预览
 
     ```css
@@ -133,6 +160,7 @@
   - [国际化——i18next](https://www.i18next.com/translation-function/context)
   - [国际化-react-i18next quick start](https://react.i18next.com/getting-started)
   - [路由配置化管理config](https://juejin.cn/post/6911497890822029326)
+  - [多环境配置-create-react-app](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
