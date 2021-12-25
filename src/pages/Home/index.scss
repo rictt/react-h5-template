@@ -2,9 +2,15 @@ $name: 'home-page';
 
 .#{$name}-test {
   color: red;
+  line-height: 2;
 
   .custom-color {
     color: skyblue;
     font-size: 20px;
+  }
+
+  .btn {
+    border: 1px solid red;
+    margin: 0 40px;
   }
 }

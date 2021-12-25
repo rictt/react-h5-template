@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import '@/assets/style/reset.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import { resources } from '@/i18n'
+import { getLanguage } from '@/utils/i18n'
+
+i18n.use(initReactI18next)
+    .init({
+      resources,
+      lng: getLanguage(),
+      fallbackLng: "en"
+    })
 
 ReactDOM.render(
   <React.StrictMode>

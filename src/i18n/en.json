@@ -1,0 +1,9 @@
+{
+  "welcome": "welcome to React",
+  "user": {
+    "name": "User name",
+    "password": "User password is {{psd}}"
+  },
+  "checkoutLanguage": "checkout Language",
+  "success": "success !"
+}

@@ -1,0 +1,9 @@
+{
+  "welcome": "欢迎来到React",
+  "user": {
+    "name": "用户姓名",
+    "password": "用户密码为：{{psd}}"
+  },
+  "checkoutLanguage": "切换语言",
+  "success": "成功"
+}
