@@ -1,4 +1,70 @@
 # 文档记录
+  - 国际化管理
+
+    国际化管理使用了react-i18next、i18next这两个库，`前者是在后者的基础上进行扩展，所以遇到配置上的问题优先找i18next的文档`
+
+    添加依赖
+
+    ```js
+    npm install react-i18next i18next --save
+    // 在入口
+    import { initReactI18next } from "react-i18next";
+    const resources = {
+      zh: {
+        // translation是官方的写法，里面才是国际化的对象
+        translation: {
+          "aaa": 123,
+          "obj": {
+            "aaa": 456
+          }
+        }
+      },
+      // 其他语言...
+    }
+    i18n.use(initReactI18next)
+      .init({
+        resources,
+        // 从本地缓存取语言头
+        lng: getLanguage(),
+        fallbackLng: "en"
+      })
+    ```
+
+    切换语言
+
+    ```js
+    import { useTranslation } from "react-i18next";
+    // 在组件里面
+    function Home() {
+      const { t, i18n } = useTranslation()
+
+      const onCheckoutLanguage = () => {
+        i18n.changeLanguage('en')
+      }
+
+      return (
+        <div className='home-page-test'>
+        <div onClick={onCheckoutLanguage}>{t('checkoutLanguage')}</div>
+        </div>
+      )
+    }
+
+    ```
+
+    基本使用，参数传递
+
+    ```js
+    <div>{t('welcome')}</div>
+    <div>{t('user.name')}</div>
+    <div>{t('user.password', { psd: 123456 })}</div>
+
+    // 在json中，参数需要用双花括号{{ psd }}
+    "user": {
+      "name": "用户姓名",
+      "password": "用户密码为：{{psd}}"
+    }
+    ```
+
   - 配置文件管理
 
     环境会有**development、production**，对应src/config文件，全局或者axios的文件可对应一一写入
@@ -59,6 +125,11 @@
     ```
 
 
+
+# 相关链接
+  - [国际化——i18next](https://www.i18next.com/translation-function/context)
+  - [国际化-react-i18next quick start](https://react.i18next.com/getting-started)
+  - [路由配置化管理config](https://juejin.cn/post/6911497890822029326)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
