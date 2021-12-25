@@ -19,6 +19,8 @@ function Home() {
       <div>{t('user.password', { psd: 123456 })}</div>
       <div className='btn' onClick={onCheckoutLanguage}>{t('checkoutLanguage')}</div>
       <h3 className='custom-color'>自定义颜色</h3>
+      <div>{process.env.REACT_APP_API_URL}</div>
+      <div>{process.env.NODE_ENV}</div>
       <img src={logo} />
     </div>
   )

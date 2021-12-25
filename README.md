@@ -77,17 +77,10 @@
 
   - 配置文件管理
 
-    环境会有**development、production**，对应src/config文件，全局或者axios的文件可对应一一写入
+    在根目录新建环境文件，如`.env.development`, `.env.test`，然后写入不同环境的变量值，！注意，变量名称只能以`REACT_APP_`开头，否则不生效
 
-    ```js
-    // 本地环境配置
-    module.exports = {
-      title: 'react-h5-template',
-      baseUrl: 'http://localhost:9018', // 项目地址
-      APPID: 'xxx',
-      APPSECRET: 'xxx',
-      $cdn: 'https://www.sunniejs.cn/static'
-    }
+    ```txt
+    REACT_APP_ENV=/api
     ```
 
   - 路由管理

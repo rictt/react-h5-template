@@ -1,6 +1,6 @@
 import axios from 'axios'
 // 根据环境不同引入不同api地址
-import { baseUrl } from '@/config'
+const baseUrl = process.env.REACT_APP_API_URL
 // create an axios instance
 const service = axios.create({
   baseURL: baseUrl, // url = base api url + request url
