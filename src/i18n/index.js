@@ -3,6 +3,7 @@ const en = require('./en.json')
 
 export const resources = {
   zh: {
+    // translation是特定结构
     translation: zh
   },
   en: {
