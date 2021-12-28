@@ -10,11 +10,11 @@ module.exports = function(app) {
 //   app.use(
 //     '/api',
 //     proxy({
-//       target: 'http://176.113.69.25:6208',
+//       target: '',
 //       secure: false,
 //       changeOrigin: true,
 //       pathRewrite: {
 //         "^/api": "/api"
 //       }
 //   }))
-}
+// }
